@@ -14,8 +14,6 @@ For the version control I have used Git and Github.
 
 ### ToDo:
 
--Finish setting the workflow up.
-
 -Re-style the calculator with SASS.
 
 -Replace the JS with CoffeeScript.
