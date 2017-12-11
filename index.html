@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>My JQuery Calculator</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>HandyOnlineCalculator</h1>
+  </header>
+
+  <div class="cal-container">
+    <input type="text" name="previousDisplay" id="previous-display" readonly>
+
+    <section class="calc-section">
+        <input type="text" id="calc-display" placeholder="0." readonly>
+        <button type="button" name="button" class="top-row-buttons">Delete</button>
+        <button type="button" name="button" class="top-row-buttons">CE</button>
+        <button type="button" name="button" class="top-row-buttons no-margin">C</button>
+        <button type="button" name="button">7</button>
+        <button type="button" name="button">8</button>
+        <button type="button" name="button">9</button>
+        <button type="button" name="button" class="operator no-margin">/</button>
+        <button type="button" name="button">4</button>
+        <button type="button" name="button">5</button>
+        <button type="button" name="button">6</button>
+        <button type="button" name="button" class="operator no-margin">*</button>
+        <button type="button" name="button">1</button>
+        <button type="button" name="button">2</button>
+        <button type="button" name="button">3</button>
+        <button type="button" name="button" class="operator no-margin">-</button>
+        <button type="button" name="button" class="operator bottom-row-buttons no-margin">.</button>
+        <button type="button" name="button" class="operator bottom-row-buttons">=</button>
+        <div class="clearfix"></div>
+    </section><!--calc-section-->
+  </div><!--cal-container-->
+
+  <footer class="page-footer">
+    <p id="copyright-notice">Copyright &copy;
+      <script type="text/javascript">
+        var d = new Date();
+        document.write(d.getFullYear());
+      </script>
+       Cameron Bailey</p>
+  </footer>
+
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
