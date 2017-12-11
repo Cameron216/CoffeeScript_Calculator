@@ -1,7 +1,11 @@
-// imports
+// SASS Imports
+// Compass
 @import "compass";
 @import "compass/reset";
 
+@import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+
+// SASS Variables
 @import "variables";
 
 @import "layout";

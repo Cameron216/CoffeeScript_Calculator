@@ -1,11 +1,5 @@
-*{
-    padding: 0;
-    margin: 0;
-    font: bold 14px Arial, sans-serif;
-  }
-  
   body{
-    background-color: #DCDEDA;
+    background-color: $backgroundColor;
   }
   
   /* clearfix */
@@ -17,7 +11,7 @@
     line-height: 0;
     visibility: hidden;
   }
-  
+ 
   /* header styles */
   header{
     height: 100px;

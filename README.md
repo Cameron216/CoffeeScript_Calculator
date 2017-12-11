@@ -12,11 +12,7 @@ For the functionality I have used CoffeeScript.
 
 For the version control I have used Git and Github.
 
-
-
 ### ToDo:
-
--Set up Git repository.
 
 -Finish setting the workflow up.
 

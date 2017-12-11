@@ -1,3 +1,4 @@
+@import url(../../node_modules/bootstrap/dist/css/bootstrap.css);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -54,12 +55,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  font: bold 14px Arial, sans-serif;
-}
-
 body {
   background-color: #DCDEDA;
 }
@@ -98,6 +93,7 @@ header h1 {
   padding: 5px;
   border-radius: 5px;
   background-color: #4385ef;
+  -webkit-box-shadow: 0px 4px 0px 0px #1b67e1;
   box-shadow: 0px 4px 0px 0px #1b67e1;
 }
 
@@ -117,6 +113,7 @@ header h1 {
   color: #fff;
   background-color: #e7a61a;
   border: none;
+  -webkit-box-shadow: inset 0px 4px 0px 0px #c88800;
   box-shadow: inset 0px 4px 0px 0px #c88800;
   margin-bottom: 5px;
 }
@@ -137,39 +134,51 @@ header h1 {
   width: 71.2px;
   color: #fff;
   background-color: #E791B1;
+  -webkit-box-shadow: 0px 4px 0px 0px #d56c93;
   box-shadow: 0px 4px 0px 0px #d56c93;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
 .calc-section button:hover {
   background-color: #E27BA1;
+  -webkit-box-shadow: 0px 4px 0px 0px #cc5883;
   box-shadow: 0px 4px 0px 0px #cc5883;
 }
 
 .calc-section button:hover:active {
+  -webkit-box-shadow: 0px 0px 0px 0px #cc5883;
   box-shadow: 0px 0px 0px 0px #cc5883;
+  -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
+  -webkit-transform: translateY(3px);
   transform: translateY(3px);
 }
 
 .calc-section .operator {
   background-color: #FC8B59;
+  -webkit-box-shadow: 0px 4px 0px 0px #f46729;
   box-shadow: 0px 4px 0px 0px #f46729;
 }
 
 .calc-section .operator:hover {
   background-color: #F17137;
+  -webkit-box-shadow: 0px 4px 0px 0px #e34702;
   box-shadow: 0px 4px 0px 0px #e34702;
 }
 
 .calc-section .top-row-buttons {
   width: 96.67px;
   background-color: #e55765;
+  -webkit-box-shadow: 0px 4px 0px 0px #d12b3c;
   box-shadow: 0px 4px 0px 0px #d12b3c;
 }
 
 .calc-section .top-row-buttons:hover {
   background-color: #E64252;
+  -webkit-box-shadow: 0px 4px 0px 0px #cc172a;
   box-shadow: 0px 4px 0px 0px #cc172a;
 }
 
