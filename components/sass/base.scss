@@ -1,11 +1,20 @@
 // SASS Imports
+// ============
 // Compass
 @import "compass";
 @import "compass/reset";
 
-@import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+// Bootstrap SCSS
+// @import "bootstrap"; Not being used for this project
+
+// Fontawesome
+@import "font-awesome";
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Pangolin');
 
 // SASS Variables
 @import "variables";
 
+// Core partials
 @import "layout";

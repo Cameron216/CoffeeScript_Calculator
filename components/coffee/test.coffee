@@ -1,10 +1,11 @@
-# JQuery import
-# $ = require 'jquery'
-# bootstrap = require 'bootstrap'
+$(".clear").click ->
+    clear()
 
-name = "Javed"
-age = 25
-height = 1.3
+$(".delete").click ->
+    deleteDisplay()    
 
-function_name = -> function_body
+clear = ->
+    $("#calc-display").val($("#calc-display").val() + "1")
 
+deleteDisplay = ->
+    $("#calc-display").val("")

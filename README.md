@@ -14,6 +14,10 @@ For the version control I have used Git and Github.
 
 ### ToDo:
 
+-Create floating side bar for contact/social media buttons.
+
+-Sort SASS for making buttons look like they are being pushed.
+
 -Re-style the calculator with SASS.
 
 -Replace the JS with CoffeeScript.

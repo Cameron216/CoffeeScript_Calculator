@@ -13,16 +13,22 @@ var ten = function(){
 }
 
 var a = $("test");
-var age, function_name, height, name;
+var clear, deleteDisplay;
 
-name = "Javed";
+$(".clear").click(function() {
+  return clear();
+});
 
-age = 25;
+$(".delete").click(function() {
+  return deleteDisplay();
+});
 
-height = 1.3;
+clear = function() {
+  return $("#calc-display").val($("#calc-display").val() + "1");
+};
 
-function_name = function() {
-  return function_body;
+deleteDisplay = function() {
+  return $("#calc-display").val("");
 };
 
 },{"bootstrap":2,"jquery":15}],2:[function(require,module,exports){
