@@ -5,7 +5,7 @@
   }
 
 
-  /* clearfix */
+  /* general styles */
   .clearfix:after {
     clear: both;
     content: ".";
@@ -27,8 +27,9 @@
       padding: 10px;
     }
   }
-  /*   calc positioning */
-
+  
+  
+  /* calculator positioning */
   .cal-container {
     margin-top: 40px;
     text-align: center;
@@ -114,8 +115,9 @@
       }
     }
   }
-  /* calc-displays */
-
+  
+  
+  /* calculator displays */
   #previous-display {
     width: 300px;
     padding: 5px;
@@ -126,9 +128,14 @@
    ::-webkit-input-placeholder {
     color: #fff;
   }
-  /* calc buttons */
 
 
+  /* calculator buttons */
+  button, input{
+    font-family: 'Pangolin', cursive;
+    font-size: 1.2em;
+  }
+  
   .no-margin {
     margin-right: 0 !important;
   }
@@ -145,28 +152,7 @@
   }
 
 
-  /* footer styles */
-  .page-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-
-    #copyright-notice {
-      font-size: 1.1em;
-      font-weight: normal;
-      padding: 5px;
-    }
-  }
-
-  button, input{
-    font-family: 'Pangolin', cursive;
-    font-size: 1.2em;
-  }
-
-
-
+  /* social media sidebar */
   .social-media-aside{
     position: fixed;
     top: 250px;
@@ -180,7 +166,6 @@
       li{
         padding: 15px;
         width: 26px;
-        // text-align: center;
         
         span{
           position: absolute;
@@ -292,5 +277,21 @@
           }
         }
       }
+    }
+  }
+
+
+   /* footer styles */
+   .page-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+
+    #copyright-notice {
+      font-size: 1.1em;
+      font-weight: normal;
+      padding: 10px;
     }
   }
