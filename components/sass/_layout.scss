@@ -164,3 +164,133 @@
     font-family: 'Pangolin', cursive;
     font-size: 1.2em;
   }
+
+
+
+  .social-media-aside{
+    position: fixed;
+    top: 250px;
+    right: 0;
+
+    .sticky-media{
+      a{
+        float: right;
+      }
+    
+      li{
+        padding: 15px;
+        width: 26px;
+        // text-align: center;
+        
+        span{
+          position: absolute;
+          right: -100px;
+          transition: right 1s ease;
+          color: #fff;
+          font-size: 1.4em;
+        }
+      }
+
+      .fb-icon{
+        background-color: #4267b2;
+        transition: width 1s ease;   
+
+        i{ 
+          color: #fff;
+        }
+
+        &:hover{
+          width: 180px;
+          
+          span{
+            right: 40px;
+          }
+        }
+      }
+
+      .twitter-icon{
+        background-color: #55acee;
+        transition: width 1s ease;  
+
+        i{ 
+          color: #fff;
+        }
+
+        &:hover{
+          width: 180px;
+          
+          span{
+            right: 40px;
+          }
+        }
+      }
+
+      .linkedin-icon{
+        background-color: #007bb5;
+        transition: width 1s ease;  
+
+        i{ 
+          color: #fff;
+        }
+
+        &:hover{
+          width: 180px;
+          
+          span{
+            right: 40px;
+          }
+        }
+      }
+
+      .github-icon{
+        background-color: #000;
+        transition: width 1s ease;  
+
+        i{ 
+          color: #fff;
+        }
+
+        &:hover{
+          width: 180px;
+          
+          span{
+            right: 40px;
+          }
+        }
+      }
+
+      .email-icon{
+        background-color: #38B9AC;
+        transition: width 1s ease;  
+
+        i{ 
+          color: #fff;
+        }
+
+        &:hover{
+          width: 180px;
+          
+          span{
+            right: 40px;
+          }
+        }
+      }
+
+      .portfolio-icon{
+        background-color: #FF5733;
+        transition: width 1s ease;  
+
+        i{ 
+          color: #fff;
+        }
+
+        &:hover{
+          width: 180px;
+
+          span{
+            right: 40px;
+          }
+        }
+      }
+    }
+  }
