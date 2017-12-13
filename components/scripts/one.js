@@ -5,10 +5,3 @@ var bootstrap = require("bootstrap");
 
 
 
-var test, testone, testtwo, testthree;
-
-var ten = function(){
-    return true;
-}
-
-var a = $("test");

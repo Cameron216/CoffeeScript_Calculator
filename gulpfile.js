@@ -14,7 +14,7 @@ var sassSources = [
 
 var jsSources = [
     'components/scripts/one.js',
-    'components/scripts/test.js'
+    'components/scripts/calc.js'
 ];
 
 var coffeeSources = [
