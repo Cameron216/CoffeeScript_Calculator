@@ -1,4 +1,4 @@
-var currentDisplay, currentSum, previousDisplay;
+var buttonClicked, clear, currentDisplay, currentSum, generateNumber, generateOperator, generateSum, lastOperator, previousDisplay;
 
 previousDisplay = [];
 
@@ -6,59 +6,104 @@ currentDisplay = "";
 
 currentSum = "";
 
+lastOperator = "";
+
+buttonClicked = "";
+
 $("button").click(function() {
-  var buttonClicked;
   buttonClicked = $(this).html();
-  currentDisplay = $("#calc-display").val();
   switch (buttonClicked) {
     case "0":
-      return $("#calc-display").val($("#calc-display").val() + buttonClicked);
-    case "1":
-      if (currentDisplay === "." || currentDisplay === "/" || currentDisplay === "=" || currentDisplay === "*" || currentDisplay === "-" || currentDisplay === "") {
-        previousDisplay.push(currentDisplay);
-        return $("#calc-display").val(buttonClicked);
-      } else {
-        return $("#calc-display").val($("#calc-display").val() + buttonClicked);
-      }
+      generateNumber();
       break;
+    case "1":
     case "2":
-      return $("#calc-display").val($("#calc-display").val() + buttonClicked);
     case "3":
-      return $("#calc-display").val($("#calc-display").val() + buttonClicked);
     case "4":
-      return $("#calc-display").val($("#calc-display").val() + buttonClicked);
     case "5":
-      return $("#calc-display").val($("#calc-display").val() + buttonClicked);
     case "6":
-      return $("#calc-display").val($("#calc-display").val() + buttonClicked);
     case "7":
-      return $("#calc-display").val($("#calc-display").val() + buttonClicked);
     case "8":
-      return $("#calc-display").val($("#calc-display").val() + buttonClicked);
     case "9":
-      return $("#calc-display").val($("#calc-display").val() + buttonClicked);
+      generateNumber();
+      break;
     case "=":
-      previousDisplay.push($("#calc-display").val());
-      $("#previous-display").val(previousDisplay.join(""));
-      return $("#calc-display").val(buttonClicked);
+      generateSum(lastOperator);
+      break;
     case ".":
-      return $("#calc-display").val(buttonClicked);
+      $("#calc-display").val(buttonClicked);
+      break;
     case "-":
-      return $("#calc-display").val(buttonClicked);
+      generateOperator();
+      break;
     case "*":
-      return $("#calc-display").val(buttonClicked);
+      generateOperator();
+      break;
     case "/":
-      return $("#calc-display").val(buttonClicked);
+      generateOperator();
+      break;
+    case "+":
+      generateOperator();
+      break;
     case "Delete":
-      $("#calc-display").val("");
-      return currentDisplay = "";
+      clear();
+      break;
     case "CE":
-      $("#calc-display, #previous-display").val("");
-      previousDisplay = [];
-      return currentDisplay = "";
+      clear();
+      break;
     case "C":
-      return $("#calc-display").val("");
+      clear();
+      break;
     default:
-      return alert("Something went wrong");
+      alert("Something went wrong");
   }
+  return console.log(previousDisplay + "\n" + currentDisplay + "\n" + currentSum + "\n" + lastOperator);
 });
+
+generateSum = function(operator) {
+  switch (operator) {
+    case "+":
+      currentSum = parseInt(currentSum) + parseInt(currentDisplay);
+      return $("#calc-display").val(currentSum);
+    case "/":
+      currentSum = parseInt(currentSum) / parseInt(currentDisplay);
+      return $("#calc-display").val(currentSum);
+    case "-":
+      currentSum = parseInt(currentSum) - parseInt(currentDisplay);
+      return $("#calc-display").val(currentSum);
+    case "*":
+      currentSum = parseInt(currentSum) * parseInt(currentDisplay);
+      return $("#calc-display").val(currentSum);
+    default:
+      return alert("Operator unknown");
+  }
+};
+
+generateNumber = function() {
+  if (currentDisplay === "+" || currentDisplay === "/" || currentDisplay === "*" || currentDisplay === "-") {
+    previousDisplay.push(currentDisplay);
+    $("#calc-display").val(buttonClicked);
+    return currentDisplay = buttonClicked;
+  } else {
+    $("#calc-display").val($("#calc-display").val() + buttonClicked);
+    return currentDisplay = $("#calc-display").val();
+  }
+};
+
+generateOperator = function() {
+  if (currentSum === "") {
+    currentSum = currentDisplay;
+  }
+  lastOperator = buttonClicked;
+  currentDisplay = buttonClicked;
+  return $("#calc-display").val(buttonClicked);
+};
+
+clear = function() {
+  $("#calc-display, #previous-display").val("");
+  previousDisplay = [];
+  currentDisplay = "";
+  currentSum = "";
+  lastOperator = "";
+  return buttonClicked = "";
+};

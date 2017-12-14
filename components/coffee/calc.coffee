@@ -1,56 +1,82 @@
-# $(".clear").click ->
-#     clear()
-
-# $(".delete").click ->
-#     deleteDisplay()    
-
-# clear = ->
-#     $("#calc-display").val($("#calc-display").val() + "1")
-
-# deleteDisplay = ->
-#     $("#calc-display").val("")
-
 previousDisplay = []
 currentDisplay = ""
 currentSum = ""
-
+lastOperator = ""
+buttonClicked = ""
 
 # calculator button click function
 $("button").click ->
     buttonClicked = $(this).html()
-    currentDisplay = $("#calc-display").val()
 
     switch buttonClicked
-        when "0" then $("#calc-display").val($("#calc-display").val() + buttonClicked)
-        when "1"
-            if currentDisplay == "." || currentDisplay == "/" || currentDisplay == "=" || currentDisplay == "*" || currentDisplay == "-" || currentDisplay == ""
-                previousDisplay.push(currentDisplay)
-                $("#calc-display").val(buttonClicked)
-            else
-                $("#calc-display").val($("#calc-display").val() + buttonClicked)
-        when "2" then $("#calc-display").val($("#calc-display").val() + buttonClicked)
-        when "3" then $("#calc-display").val($("#calc-display").val() + buttonClicked)
-        when "4" then $("#calc-display").val($("#calc-display").val() + buttonClicked)
-        when "5" then $("#calc-display").val($("#calc-display").val() + buttonClicked)
-        when "6" then $("#calc-display").val($("#calc-display").val() + buttonClicked)
-        when "7" then $("#calc-display").val($("#calc-display").val() + buttonClicked)
-        when "8" then $("#calc-display").val($("#calc-display").val() + buttonClicked)
-        when "9" then $("#calc-display").val($("#calc-display").val() + buttonClicked)
+        when "0" 
+            generateNumber()
+        when "1", "2", "3", "4", "5", "6", "7", "8", "9"
+            generateNumber()
         when "=" 
-            previousDisplay.push($("#calc-display").val())
-            $("#previous-display").val(previousDisplay.join(""))
+            generateSum(lastOperator)
+        when "." 
             $("#calc-display").val(buttonClicked)
-
-        when "." then $("#calc-display").val(buttonClicked)
-        when "-" then $("#calc-display").val(buttonClicked)
-        when "*" then $("#calc-display").val(buttonClicked)
-        when "/" then $("#calc-display").val(buttonClicked)
+        when "-"
+            generateOperator()
+        when "*" 
+            generateOperator()
+        when "/"
+            generateOperator()
+        when "+"
+            generateOperator()
         when "Delete"
-            $("#calc-display").val("")
-            currentDisplay = ""
+            clear()
         when "CE" 
-            $("#calc-display, #previous-display").val("")
-            previousDisplay = []
-            currentDisplay = ""
-        when "C" then $("#calc-display").val("")
+            clear()
+        when "C" 
+            clear()
         else alert("Something went wrong")
+
+    # using to see what the current values variables hold
+    console.log(previousDisplay + "\n" + currentDisplay + "\n" + currentSum + "\n" + lastOperator)
+
+generateSum = (operator) ->
+    switch operator
+        when "+"    
+            currentSum = (parseInt(currentSum) + parseInt(currentDisplay))
+            $("#calc-display").val(currentSum)
+        when "/"    
+            currentSum = (parseInt(currentSum) / parseInt(currentDisplay))
+            $("#calc-display").val(currentSum)           
+        when "-"
+            currentSum = (parseInt(currentSum) - parseInt(currentDisplay))
+            $("#calc-display").val(currentSum)              
+        when "*"    
+            currentSum = (parseInt(currentSum) * parseInt(currentDisplay))
+            $("#calc-display").val(currentSum)     
+        else alert("Operator unknown")
+
+generateNumber = () ->
+    if currentDisplay == "+" || currentDisplay == "/" || currentDisplay == "*" || currentDisplay == "-"
+        previousDisplay.push(currentDisplay)
+        $("#calc-display").val(buttonClicked)
+        currentDisplay = buttonClicked
+    else
+        $("#calc-display").val($("#calc-display").val() + buttonClicked)
+        currentDisplay = $("#calc-display").val()
+
+generateOperator = () ->
+    if currentSum is ""
+        currentSum = currentDisplay
+    lastOperator = buttonClicked
+    currentDisplay = buttonClicked
+    $("#calc-display").val(buttonClicked)
+
+clear = () ->
+    $("#calc-display, #previous-display").val("")
+    previousDisplay = []
+    currentDisplay = ""
+    currentSum = ""
+    lastOperator = ""
+    buttonClicked = ""
+
+
+
+            # previousDisplay.push($("#calc-display").val())
+            # $("#previous-display").val(previousDisplay.join(""))
