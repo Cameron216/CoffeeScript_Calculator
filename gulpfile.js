@@ -13,7 +13,7 @@ var sassSources = [
 ];
 
 var jsSources = [
-    'components/scripts/one.js',
+    'components/scripts/main.js',
     'components/scripts/calc.js'
 ];
 

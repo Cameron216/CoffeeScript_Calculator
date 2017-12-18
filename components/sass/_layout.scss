@@ -152,6 +152,29 @@
   }
 
 
+  // current sum
+  #sum-section{
+    margin-top: 40px;
+
+    #current-sum{
+      font-size: 2em;
+      text-align: center;
+
+      span{
+        font-size: 4em;
+      }
+    }
+  }
+
+
+  // background images
+  .stickmen-one{
+    position: absolute;
+    top: 200px;
+    left: 90px;
+  }
+
+
   /* social media sidebar */
   .social-media-aside{
     position: fixed;

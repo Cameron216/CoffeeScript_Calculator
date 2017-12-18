@@ -11,7 +11,7 @@ var buttonClicked, clear, currentDisplay, currentSum, generateNumber, generateOp
 
 previousDisplay = [];
 
-currentDisplay = "";
+currentDisplay = "0";
 
 currentSum = "";
 
@@ -19,11 +19,15 @@ lastOperator = "";
 
 buttonClicked = "";
 
+$("#calc-display").val(currentDisplay);
+
 $("button").click(function() {
   buttonClicked = $(this).html();
   switch (buttonClicked) {
     case "0":
-      generateNumber();
+      if (currentDisplay !== "0") {
+        generateNumber();
+      }
       break;
     case "1":
     case "2":
@@ -40,26 +44,16 @@ $("button").click(function() {
       generateSum(lastOperator);
       break;
     case ".":
-      $("#calc-display").val(buttonClicked);
+      generateNumber();
       break;
     case "-":
-      generateOperator();
-      break;
     case "*":
-      generateOperator();
-      break;
     case "/":
-      generateOperator();
-      break;
     case "+":
       generateOperator();
       break;
     case "Delete":
-      clear();
-      break;
     case "CE":
-      clear();
-      break;
     case "C":
       clear();
       break;
@@ -73,19 +67,27 @@ generateSum = function(operator) {
   switch (operator) {
     case "+":
       currentSum = parseInt(currentSum) + parseInt(currentDisplay);
-      return $("#calc-display").val(currentSum);
+      $("#calc-display").val(currentSum);
+      break;
     case "/":
       currentSum = parseInt(currentSum) / parseInt(currentDisplay);
-      return $("#calc-display").val(currentSum);
+      $("#calc-display").val(currentSum);
+      break;
     case "-":
       currentSum = parseInt(currentSum) - parseInt(currentDisplay);
-      return $("#calc-display").val(currentSum);
+      $("#calc-display").val(currentSum);
+      break;
     case "*":
       currentSum = parseInt(currentSum) * parseInt(currentDisplay);
-      return $("#calc-display").val(currentSum);
+      $("#calc-display").val(currentSum);
+      break;
     default:
-      return alert("Operator unknown");
+      alert("You pressed equals without entering any numbers or operators silly!");
   }
+  previousDisplay.push(currentDisplay);
+  $("#previous-display").val(previousDisplay.join(""));
+  lastOperator = "=";
+  return currentDisplay = currentSum;
 };
 
 generateNumber = function() {
@@ -100,8 +102,16 @@ generateNumber = function() {
 };
 
 generateOperator = function() {
+  if (lastOperator !== "=") {
+    previousDisplay.push(currentDisplay);
+    $("#previous-display").val(previousDisplay.join(""));
+  }
   if (currentSum === "") {
     currentSum = currentDisplay;
+  } else if (lastOperator = "=") {
+
+  } else {
+    generateSum(lastOperator);
   }
   lastOperator = buttonClicked;
   currentDisplay = buttonClicked;
@@ -109,12 +119,13 @@ generateOperator = function() {
 };
 
 clear = function() {
-  $("#calc-display, #previous-display").val("");
   previousDisplay = [];
-  currentDisplay = "";
+  currentDisplay = "0";
   currentSum = "";
   lastOperator = "";
-  return buttonClicked = "";
+  buttonClicked = "";
+  $("#previous-display").val("");
+  return $("#calc-display").val(currentDisplay);
 };
 
 },{"bootstrap":2,"jquery":15}],2:[function(require,module,exports){

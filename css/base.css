@@ -191,6 +191,23 @@ button, input {
   border-radius: 0 0 5px 5px;
 }
 
+#sum-section {
+  margin-top: 40px;
+}
+#sum-section #current-sum {
+  font-size: 2em;
+  text-align: center;
+}
+#sum-section #current-sum span {
+  font-size: 4em;
+}
+
+.stickmen-one {
+  position: absolute;
+  top: 200px;
+  left: 90px;
+}
+
 /* social media sidebar */
 .social-media-aside {
   position: fixed;
