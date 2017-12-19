@@ -15,8 +15,7 @@ For the version control I have used Git and Github.
 ### ToDo:
 
 * Finish coffeescript code off
-    * functionality for NaN
     * functionality for "."
-    * functionality for current sum to show underneath calculator
-    * sort copyright so it isnt sticky to the bottom
-    * mobile optimize?
+
+* Possible another image on right side?
+* Add copyright text back in?
