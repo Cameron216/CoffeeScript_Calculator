@@ -75,11 +75,36 @@ body {
 header {
   height: 100px;
   background-color: #64A52F;
+  border-top: 5px solid #9cc779;
+  border-right: 5px solid #9cc779;
+}
+@media only screen and (max-width: 480px) {
+  header {
+    height: 80px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  header {
+    height: 70px;
+  }
 }
 header h1 {
-  color: #fff;
+  color: #ffffff;
   font-size: 3.5em;
-  padding: 10px;
+  padding: 20px 0 0 20px;
+  display: inline-block;
+}
+@media only screen and (max-width: 480px) {
+  header h1 {
+    font-size: 2.5em;
+    padding: 10px 0 0 10px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  header h1 {
+    font-size: 2.1em;
+    padding: 10px 0 0 10px;
+  }
 }
 
 /* calculator positioning */
@@ -101,7 +126,7 @@ header h1 {
   padding: 10px;
   text-align: right;
   border-radius: 5px 5px 0 0;
-  color: #fff;
+  color: #ffffff;
   background-color: #e7a61a;
   border: none;
   box-shadow: inset 0px 4px 0px 0px #c88800;
@@ -116,7 +141,7 @@ header h1 {
   border: none;
   outline: none;
   width: 71.2px;
-  color: #fff;
+  color: #ffffff;
   background-color: #72CB6B;
   box-shadow: 0px 4px 0px 0px #188e0f;
   user-select: none;
@@ -167,7 +192,7 @@ header h1 {
 }
 
 ::-webkit-input-placeholder {
-  color: #fff;
+  color: #ffffff;
 }
 
 /* calculator buttons */
@@ -201,11 +226,34 @@ button, input {
 #sum-section #current-sum span {
   font-size: 4em;
 }
+#sum-section #current-sum .nan-error {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #E93737;
+  margin-top: 10px;
+  display: inline-block;
+}
+@media only screen and (max-width: 768px) {
+  #sum-section #current-sum .nan-error {
+    font-size: 1.4em;
+  }
+}
 
 .stickmen-one {
   position: absolute;
   top: 200px;
   left: 90px;
+  z-index: -10;
+}
+@media only screen and (max-width: 1024px) {
+  .stickmen-one {
+    left: 0;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .stickmen-one img {
+    display: none;
+  }
 }
 
 /* social media sidebar */
@@ -225,7 +273,7 @@ button, input {
   position: absolute;
   right: -100px;
   transition: right 1s ease;
-  color: #fff;
+  color: #ffffff;
   font-size: 1.4em;
 }
 .social-media-aside .sticky-media .fb-icon {
@@ -233,7 +281,7 @@ button, input {
   transition: width 1s ease;
 }
 .social-media-aside .sticky-media .fb-icon i {
-  color: #fff;
+  color: #ffffff;
 }
 .social-media-aside .sticky-media .fb-icon:hover {
   width: 180px;
@@ -246,7 +294,7 @@ button, input {
   transition: width 1s ease;
 }
 .social-media-aside .sticky-media .twitter-icon i {
-  color: #fff;
+  color: #ffffff;
 }
 .social-media-aside .sticky-media .twitter-icon:hover {
   width: 180px;
@@ -259,7 +307,7 @@ button, input {
   transition: width 1s ease;
 }
 .social-media-aside .sticky-media .linkedin-icon i {
-  color: #fff;
+  color: #ffffff;
 }
 .social-media-aside .sticky-media .linkedin-icon:hover {
   width: 180px;
@@ -272,7 +320,7 @@ button, input {
   transition: width 1s ease;
 }
 .social-media-aside .sticky-media .github-icon i {
-  color: #fff;
+  color: #ffffff;
 }
 .social-media-aside .sticky-media .github-icon:hover {
   width: 180px;
@@ -285,7 +333,7 @@ button, input {
   transition: width 1s ease;
 }
 .social-media-aside .sticky-media .email-icon i {
-  color: #fff;
+  color: #ffffff;
 }
 .social-media-aside .sticky-media .email-icon:hover {
   width: 180px;
@@ -298,13 +346,18 @@ button, input {
   transition: width 1s ease;
 }
 .social-media-aside .sticky-media .portfolio-icon i {
-  color: #fff;
+  color: #ffffff;
 }
 .social-media-aside .sticky-media .portfolio-icon:hover {
   width: 180px;
 }
 .social-media-aside .sticky-media .portfolio-icon:hover span {
   right: 40px;
+}
+@media only screen and (max-width: 480px) {
+  .social-media-aside {
+    display: none;
+  }
 }
 
 /* footer styles */

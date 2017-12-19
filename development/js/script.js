@@ -26,7 +26,7 @@ $("button").click(function() {
   switch (buttonClicked) {
     case "0":
       if (currentDisplay !== "0") {
-        generateNumber();
+        return generateNumber();
       }
       break;
     case "1":
@@ -38,29 +38,23 @@ $("button").click(function() {
     case "7":
     case "8":
     case "9":
-      generateNumber();
-      break;
+      return generateNumber();
     case "=":
-      generateSum(lastOperator);
-      break;
+      return generateSum(lastOperator);
     case ".":
-      generateNumber();
-      break;
+      return generateNumber();
     case "-":
     case "*":
     case "/":
     case "+":
-      generateOperator();
-      break;
+      return generateOperator();
     case "Delete":
     case "CE":
     case "C":
-      clear();
-      break;
+      return clear();
     default:
-      alert("Something went wrong");
+      return alert("Critical error!! Self destruct sequence initiated!!");
   }
-  return console.log(previousDisplay + "\n" + currentDisplay + "\n" + currentSum + "\n" + lastOperator);
 });
 
 generateSum = function(operator) {
@@ -87,7 +81,13 @@ generateSum = function(operator) {
   previousDisplay.push(currentDisplay);
   $("#previous-display").val(previousDisplay.join(""));
   lastOperator = "=";
-  return currentDisplay = currentSum;
+  currentDisplay = currentSum;
+  console.log(currentSum);
+  if (isNaN(currentSum)) {
+    return $("#current-total").addClass("nan-error").html("Critical error!!<br>Self destruct sequence initiated!!");
+  } else {
+    return $("#current-total").html(currentSum);
+  }
 };
 
 generateNumber = function() {
@@ -96,8 +96,13 @@ generateNumber = function() {
     $("#calc-display").val(buttonClicked);
     return currentDisplay = buttonClicked;
   } else {
-    $("#calc-display").val($("#calc-display").val() + buttonClicked);
-    return currentDisplay = $("#calc-display").val();
+    if ($("#calc-display").val() === "0") {
+      $("#calc-display").val(buttonClicked);
+      return currentDisplay = $("#calc-display").val();
+    } else {
+      $("#calc-display").val($("#calc-display").val() + buttonClicked);
+      return currentDisplay = $("#calc-display").val();
+    }
   }
 };
 
@@ -125,7 +130,8 @@ clear = function() {
   lastOperator = "";
   buttonClicked = "";
   $("#previous-display").val("");
-  return $("#calc-display").val(currentDisplay);
+  $("#calc-display").val(currentDisplay);
+  return $("#current-total").removeClass("nan-error").html("0");
 };
 
 },{"bootstrap":2,"jquery":15}],2:[function(require,module,exports){

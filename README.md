@@ -14,11 +14,9 @@ For the version control I have used Git and Github.
 
 ### ToDo:
 
-* Add some background images (maybe some stickmen learning?)
-
 * Finish coffeescript code off
     * functionality for NaN
-    * functionality for operators other than = to do the operations
-    * functionality for pervious display to show correctly the previous inputs
-    * show current sum somewhere all the time?
+    * functionality for "."
+    * functionality for current sum to show underneath calculator
+    * sort copyright so it isnt sticky to the bottom
     * mobile optimize?

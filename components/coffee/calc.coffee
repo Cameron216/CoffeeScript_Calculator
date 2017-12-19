@@ -24,11 +24,11 @@ $("button").click ->
             generateOperator()
         when "Delete", "CE", "C"
             clear()
-        else alert("Something went wrong")
+        else alert("Critical error!! Self destruct sequence initiated!!")
 
 
     # using to see what the current values variables hold
-    console.log(previousDisplay + "\n" + currentDisplay + "\n" + currentSum + "\n" + lastOperator)
+    # console.log(previousDisplay + "\n" + currentDisplay + "\n" + currentSum + "\n" + lastOperator)
 
 generateSum = (operator) ->
     switch operator
@@ -50,6 +50,11 @@ generateSum = (operator) ->
     $("#previous-display").val(previousDisplay.join(""))
     lastOperator = "="
     currentDisplay = currentSum
+    console.log(currentSum)
+    if isNaN(currentSum)
+        $("#current-total").addClass("nan-error").html("Critical error!!<br>Self destruct sequence initiated!!")        
+    else
+        $("#current-total").html(currentSum)
 
 generateNumber = () ->
     if currentDisplay == "+" || currentDisplay == "/" || currentDisplay == "*" || currentDisplay == "-"
@@ -57,8 +62,12 @@ generateNumber = () ->
         $("#calc-display").val(buttonClicked)
         currentDisplay = buttonClicked
     else
-        $("#calc-display").val($("#calc-display").val() + buttonClicked)
-        currentDisplay = $("#calc-display").val()
+        if $("#calc-display").val() == "0"
+            $("#calc-display").val(buttonClicked)
+            currentDisplay = $("#calc-display").val()
+        else
+            $("#calc-display").val($("#calc-display").val() + buttonClicked)
+            currentDisplay = $("#calc-display").val()
 
 generateOperator = () ->
     if lastOperator != "="
@@ -84,6 +93,7 @@ clear = () ->
     buttonClicked = ""
     $("#previous-display").val("")
     $("#calc-display").val(currentDisplay)
+    $("#current-total").removeClass("nan-error").html("0")
 
 
 
