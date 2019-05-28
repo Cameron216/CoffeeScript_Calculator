@@ -17,5 +17,3 @@ For the version control I have used Git and Github.
 * Finish coffeescript code off:
     * functionality for "."
 * Turn the calculator into a scientific one
-* Possible another image on right side?
-* Add copyright text back in?
