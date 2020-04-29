@@ -21,7 +21,7 @@
     "gulp-ruby-sass": "^2.1.1",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
-    "jquery": "^3.2.1"
+    "jquery": "^3.5.0"
   },
   "dependencies": {}
 }
